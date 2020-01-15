@@ -1,0 +1,14 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_KARAKTER_ISLEMLERI_SCRN
+*&---------------------------------------------------------------------*
+
+
+
+
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001.
+SELECTION-SCREEN SKIP.
+
+PARAMETERS: p_krktr TYPE c LENGTH 255.  " PARAMETRE MAX 255 KARAKTER ALIR VE BÜYÜK HARFLERLE YAZAR
+
+SELECTION-SCREEN SKIP.
+SELECTION-SCREEN END OF BLOCK b1.

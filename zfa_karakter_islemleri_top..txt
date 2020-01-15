@@ -1,0 +1,17 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_KARAKTER_ISLEMLERI_TOP
+*&---------------------------------------------------------------------*
+
+CLASS : gcl_class DEFINITION DEFERRED.  "TANIMLANMA TANIMLANMIŞ
+DATA : go_object TYPE REF TO gcl_class.
+
+DATA: p_krkt(255) TYPE  c,
+      gv_len      TYPE  i.
+
+TYPES: BEGIN OF gt_krktr,
+       p_krktr TYPE c LENGTH 255,
+       END  OF gt_krktr.
+
+DATA: gt_krktr TYPE TABLE OF gt_krktr,
+      gs_krktr TYPE gt_krktr,
+      gv_krktr TYPE string.

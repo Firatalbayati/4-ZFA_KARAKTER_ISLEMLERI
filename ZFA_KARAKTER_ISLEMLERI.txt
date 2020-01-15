@@ -1,0 +1,31 @@
+*&---------------------------------------------------------------------*
+*& Report  ZFA_KARAKTER_ISLEMLERI
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+
+REPORT zfa_karakter_islemleri.
+
+
+INCLUDE zfa_karakter_islemleri_top.
+INCLUDE zfa_karakter_islemleri_scrn.
+INCLUDE zfa_karakter_islemleri_clss.
+INCLUDE zfa_karakter_islemleri_f01.
+
+AT SELECTION-SCREEN.
+
+
+  INITIALIZATION.
+  CREATE OBJECT go_object
+    EXPORTING
+      iv_krktr = p_krktr.
+
+
+
+START-OF-SELECTION.
+  go_object->get_data( ).
+
+
+END-OF-SELECTION.

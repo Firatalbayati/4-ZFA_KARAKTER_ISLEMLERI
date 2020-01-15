@@ -1,0 +1,100 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_KARAKTER_ISLEMLERI_CLSS
+*&---------------------------------------------------------------------*
+
+CLASS gcl_class DEFINITION FINAL. "TANIM FİNALİ
+
+  PUBLIC SECTION.
+
+    METHODS: constructor " بناء
+      IMPORTING
+         iv_krktr TYPE c,
+         get_data.
+
+
+
+
+    CLASS-DATA:
+         gv_krktr  TYPE c.
+
+
+ENDCLASS.
+
+
+
+
+CLASS gcl_class IMPLEMENTATION.
+
+  METHOD constructor.  " بناء
+    gv_krktr = iv_krktr.
+  ENDMETHOD.                    "constructor
+
+
+METHOD get_data.
+
+
+  WRITE :/ 'Karakter sayısı', strlen( p_krktr ).   "karakter sayısını yazar
+  ULINE.
+  SKIP 2.
+
+  WRITE :/ 'Büyük harfler', p_krktr.           " büyük harflerle yazar normal çıkış
+  ULINE.
+  SKIP 2.
+
+
+  WRITE 'Küçük harfler'.
+  p_krkt = p_krktr.            " küçük harflerle yazar
+  TRANSLATE p_krkt TO LOWER CASE .
+  WRITE /: p_krkt .
+  ULINE.
+  SKIP 2.
+
+
+  SPLIT p_krktr AT ' ' INTO TABLE gt_krktr.
+  LOOP AT gt_krktr INTO gs_krktr.
+    WRITE:/ gs_krktr, ' Karakter sayısı', strlen( gs_krktr-p_krktr ).
+    SKIP 1.
+  ENDLOOP.
+  ULINE.
+
+
+  WHILE sy-index LE gv_len.                   " LE <=   LT<    GE>=
+
+    IF sy-index LT 20.                        " Döngü içinde sy-index geçerli yineleme numarasını içerir.
+      FORMAT COLOR 5.                         " Örneğin ilk döngü içerisinde sy-index  = 1 olacaktır.
+      WRITE:/ gv_krktr(sy-index).             " İkincisinde sy-index  = 2 olacak ve böyle devam edecektir
+    ENDIF.
+    IF sy-index GE 20 AND sy-index LT 40.
+      FORMAT COLOR 4.
+      WRITE:/ gv_krktr(sy-index).
+    ENDIF.
+    IF sy-index GE 40.
+      FORMAT COLOR 6.
+      WRITE:/ gv_krktr(sy-index).
+    ENDIF.
+
+  ENDWHILE.
+
+
+  LOOP AT gt_krktr INTO gs_krktr.          "sap nin abapında bir internal table loop edilmişse
+    IF sy-tabix LT 4.                      "internal tablonun geçerli satır sayısını içeren sayıdır.
+      FORMAT COLOR 5.
+      WRITE gs_krktr-p_krktr.
+    ENDIF.
+    IF sy-tabix GE 4 AND sy-tabix LT 7.
+      FORMAT COLOR 4.
+      WRITE gs_krktr-p_krktr.
+    ENDIF.
+    IF sy-tabix GE 7.
+      FORMAT COLOR 6.
+      WRITE gs_krktr-p_krktr.
+    ENDIF.
+  ENDLOOP.
+  FORMAT COLOR OFF.
+  SKIP 5.
+
+  ENDMETHOD.
+
+
+
+ENDCLASS.

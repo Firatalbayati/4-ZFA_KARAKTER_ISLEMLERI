@@ -1,0 +1,9 @@
+Karakter İşlemleri
+
+Seçim ekranına Parametre olarak eklenebilecek en uzun uzunlukta bir parametre ekleyin.
+Bu alana girilen değer;
+•	Kaç karakterdir ekrana basılacak.
+•	Tamamı büyük harfe çevrilerek ekrana basılacak. 
+•	Tamamı küçük harfe çevrilerek ekrana basılacak.
+•	Her bir kelime bir satırda olacak şekilde ekrana basılacak (Her kelimenin kaç karakter olduğu da parantez içinde belirtilecek).
+•	1-20 karakter arası yeşil, 20-40 karakter arası mavi 40+ karakter üstü olanlar ise kırmızı olarak ekrana basılacak (Aynı işlem, aynı kural ile kelimeler için de yapılacak).
